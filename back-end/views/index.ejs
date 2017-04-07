@@ -1,0 +1,23 @@
+<%- include template.ejs %>
+
+	<div class="container">
+	<h1 id="welcome">Hi there!  Looking for top-rated restaurants near Tech Square Labs? Look no further!</h1>
+		<% data.businesses.map((item, index) => { %>
+			<%
+			if (item.rating >= 3) { %>
+				<div class="col-sm-4">
+					<a target="_blank" href="<%= item.url %>"><img class="image" src="<%= item.image_url %>"></a>
+					<p class="business-name"><%= item.name %></p>
+					<p class="business-phone">Phone: <%= item.display_phone %></p>
+					<p class="business-rating">Rating: <%= item.rating %></p>
+					<p class="business-price">Price Range: <%= item.price %></p>
+				</div>
+			<% } %>
+			
+		<% }); %>
+
+	</div>
+
+</body>
+</html>
+
